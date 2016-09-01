@@ -1,0 +1,21 @@
+p
+  |
+    You have written code that goes through the outer edge of a square matrix.  Can you write code that first goes through the outer edge, and then through the next most outer edge?
+p
+  |
+    For example, given this input:
+  = render partial: 'layouts/matrix', locals: {matrix: [['A', 'B', 'C', 'D', 'E'], ['F', 'G', 'H', 'I', 'J'], ['K', 'L', 'M', 'N', 'O'], ['P', 'Q', 'R', 'S', 'T'], ['U', 'V', 'W', 'X', 'Y']], order: ['A', 'B', 'C', 'D', 'E', 'J', 'O', 'T', 'Y', 'X', 'W', 'V', 'U', 'P', 'K', 'F', 'G', 'H', 'I', 'N', 'S', 'R', 'Q', 'L'], prefix: 'matrix'}
+p
+  |
+    In this case, only the
+  code<>
+    | M
+  |
+    would not be traversed.
+p
+  |
+    For now, it is fine to simply make 4 more loops for
+  code< data-var-camel="traverseMatrix"
+  |
+    .  In the next step, we can think about how to generalize the full spiral.
+= render partial: 'layouts/editor', locals: {name: 'twoLayers', level: 'two_layers_matrix'}

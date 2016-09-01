@@ -1,0 +1,24 @@
+p
+  |
+    We would like to write a function that traverses a square matrix in a spiral.  The spiral would go from outside to inside, and would go in clockwise order.
+p
+  |
+    For example, given this input:
+  = render partial: 'layouts/matrix', locals: {matrix: [['A', 'B', 'C', 'D'], ['E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N', 'O', 'P']], order: ['A', 'B', 'C', 'D', 'H', 'L', 'P', 'O', 'N', 'M', 'I', 'E', 'F', 'G', 'K', 'J'], prefix: 'matrix'}
+hr
+p
+  |
+    However, let's take this step by step.  First, let's write a function called
+  code<> data-var-camel="traverseMatrix"
+  |
+    that would traverse the outer layer of the matrix.
+p
+  |
+    For this input:
+  = render partial: 'layouts/matrix', locals: {matrix: [['A', 'B', 'C', 'D'], ['E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N', 'O', 'P']], order: ['A', 'B', 'C', 'D', 'H', 'L', 'P', 'O', 'N', 'M', 'I', 'E'], prefix: 'first-step-matrix'}
+p
+  |
+    This can be implemented with 4 loops for the 4 edges of the matrix to traverse.
+
+= render partial: 'layouts/editor', locals: {name: 'outerLayer', level: 'outer_layer_matrix'}
+

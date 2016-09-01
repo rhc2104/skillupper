@@ -1,0 +1,28 @@
+p
+  |
+    Could you solve
+  code<> data-var-camel="basketballScorePermutations"
+  |
+    in a bottom-up manner?
+
+p
+  ul
+    li
+      | There is 1 way to score 0 points.
+    li
+      | The permutations of scoring 1 point is equal to the permutations to score 0 points (since we can add a free throw).
+    li
+      | The permutations to score 2 points is the sum of permutations to score 0 points (adding a 2 pointer) and 1 point (adding a free throw).
+    li
+      | The permutations to score 3 points is the sum of permutations to score 0 points (adding a 3 pointer), 1 point (adding a 2 pointer), and 2 points (adding a free throw).
+
+p
+  |
+    The solution should be able to handle
+  code< data-var-camel="basketballScorePermutations"
+  code
+    | (60)
+  |
+    .
+
+= render partial: 'layouts/editor', locals: {name: 'bottomUpPermutations', level: 'bottom_up_permutations'}

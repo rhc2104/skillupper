@@ -1,0 +1,16 @@
+table.chessboard
+  tr.chessboard-row
+    td.chessboard-index
+    - 8.times do |col_index|
+      td.chessboard-index
+        = col_index
+  - 8.times do |row_index|
+    tr.chessboard-row
+      td.chessboard-index
+        = row_index
+      - 8.times do |col_index|
+        td class="#{show_visitable && queen_can_visit(existing_queens, row_index, col_index) ? 'chessboard-can-visit' : 'chessboard-square'}"
+          - if coordinates_match(existing_queens, row_index, col_index)
+            i class="fas fa-chess-queen"
+          - elsif questions && coordinates_match(questions, row_index, col_index)
+            i class="fas fa-question"

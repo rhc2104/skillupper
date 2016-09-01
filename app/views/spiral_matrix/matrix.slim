@@ -1,0 +1,55 @@
+p
+  |
+    Now, please write a function that traverses the whole square matrix in a spiral.
+p
+  |
+    For example, given this input:
+  = render partial: 'layouts/matrix', locals: {matrix: [['A', 'B', 'C', 'D', 'E'], ['F', 'G', 'H', 'I', 'J'], ['K', 'L', 'M', 'N', 'O'], ['P', 'Q', 'R', 'S', 'T'], ['U', 'V', 'W', 'X', 'Y']], order: ['A', 'B', 'C', 'D', 'E', 'J', 'O', 'T', 'Y', 'X', 'W', 'V', 'U', 'P', 'K', 'F', 'G', 'H', 'I', 'N', 'S', 'R', 'Q', 'L', 'M'], prefix: 'matrix'}
+p
+  |
+    To traverse the outer layer of the matrix, a solution would be to create 4 loops, one for each edge.  To traverse the next most outer layer, a solution would be to create another 4 loops.
+p
+  |
+    In that case, first set of loops could use
+  code<>
+    | 0
+  |
+    and
+  code<>
+    = render partial: 'layouts/variable_length', locals: {variable_name_camel: 'matrix'}
+    = ' - 1'
+  |
+    as offsets, as those indexes represent the beginning and end of the matrix.
+p
+  |
+    The second set of loops could use
+  code<>
+    | 1
+  |
+    and
+  code<>
+    = render partial: 'layouts/variable_length', locals: {variable_name_camel: 'matrix'}
+    = ' - 2'
+  |
+    .
+p
+  |
+    One possible solution to traversing the whole matrix is to have a variable called
+  code<>
+    | offset
+  |
+    that starts at 
+  code<
+    | 0
+  |
+    , and increment that value each time after the 4 inner loops are traversed.  And this outer loop would keep running until
+  code<>
+    | offset
+  |
+    is greater than
+  code<
+    = render partial: 'layouts/variable_length', locals: {variable_name_camel: 'matrix'}
+    = ' - 1 - offset'
+  |
+    .
+= render partial: 'layouts/editor', locals: {name: 'matrix', level: 'matrix'}

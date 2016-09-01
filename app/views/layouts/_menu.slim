@@ -1,0 +1,60 @@
+h2
+  a class='skillupper-logo' href='/'
+    | SkillUpper
+span
+  strong
+    | Arrays
+p class="menu-category" 
+  span
+    | Spiral Matrix
+  br
+    a href='/spiral_matrix/outer_layer'
+      ' 1
+    a href='/spiral_matrix/two_layers'
+      ' 2
+    a href='/spiral_matrix/matrix'
+      ' 3
+    a href='/spiral_matrix/recap'
+      ' 4
+span
+  strong
+    | Recursive Backtracking
+p class="menu-category" 
+  span
+    | N Queens
+  br
+    a href='/n_queens/validate_queen_placement'
+      ' 1
+    a href='/n_queens/next_row'
+      ' 2
+    a href='/n_queens/n_queens'
+      ' 3
+    a href='/n_queens/recap'
+      ' 4
+span
+  strong
+    | Dynamic Programming
+p class="menu-category" 
+  span
+    | Fibonacci
+  br
+    a href='/fibonacci/naive'
+      ' 1
+    a href='/fibonacci/memoization'
+      ' 2
+    a href='/fibonacci/bottom_up'
+      ' 3
+    a href='/fibonacci/recap'
+      ' 4
+  span
+    | Basketball Scores
+  br
+    a href='/basketball_scores/naive_permutations'
+      ' 1
+    a href='/basketball_scores/memoize_permutations'
+      ' 2
+    a href='/basketball_scores/bottom_up_permutations'
+      ' 3
+
+javascript:
+  $('.menu a[href]').filter(function() { return this.pathname === window.location.pathname && this.pathname !== '/'; }).css('color', 'black').css('font-weight', 'bold');

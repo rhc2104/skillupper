@@ -1,0 +1,73 @@
+doctype html
+html
+  head
+    title SkillUpper
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/theme-iplastic.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/theme-monokai.js"
+    script{ async src="https://www.googletagmanager.com/gtag/js?id=UA-121185777-1" }
+    javascript:
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-121185777-1');
+
+  body
+    .main
+      .log-in-or-out
+        - if user_signed_in?
+          = link_to('Log Out', destroy_user_session_path, method: :delete, class: 'btn')
+        - else
+          button type="button" class="btn btn-success" data-toggle="modal" data-target="#sign-up-modal"
+            | Sign Up
+          = link_to('Log In', new_user_session_path, class: 'btn btn-primary')
+      .menu
+        = render partial: 'layouts/menu'
+      .not-menu-container
+        div
+          - if flash[:notice]
+            p class="alert alert-warning alert-dismissible fade show" role="alert"
+              - if flash[:notice].kind_of?(Array)
+                - flash[:notice].each do |message|
+                  = message
+                  br
+              - else
+                = flash[:notice]
+              button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true"
+                  | &times;
+            - flash.delete(:notice)
+          - if flash[:alert]
+            p class="alert alert-danger alert-dismissible fade show" role="alert"
+              - if flash[:alert].kind_of?(Array)
+                - flash[:alert].each do |error|
+                  = error
+                  br
+              - else
+                = flash[:alert]
+              button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true"
+                  | &times;
+            - flash.delete(:alert)
+          = yield
+        .bottom-padding
+
+    p class="footer-notice"
+      = 'Uses '
+      a href="https://www.sphere-engine.com" target="_blank"
+        = image_tag(image_path('sphere-engine.jpg'), width: 100)
+    p class="footer-notice"
+      | Feel free to email us at
+      a< href="mailto:info@skillupper.com"
+        | info@skillupper.com
+      |
+        .
+    p class="footer-notice"
+      a href="/terms" target="_blank"
+        | Terms of Service
+    = render partial: 'layouts/sign_up_modal'

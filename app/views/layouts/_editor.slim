@@ -1,0 +1,40 @@
+- if user_signed_in? 
+  div id="previous-code-container"
+    | Your code from the previous step:
+    div class="code-input-container"
+      textarea id="previous-code" class="code-editor"
+  div
+    select id="language-selector"
+      option value="javascript"
+        | JavaScript
+      option value="python"
+        | Python 3
+      option value="ruby"
+        | Ruby
+    div class="put-code-here"
+      | Please put your code here:
+
+  div class="code-input-container"
+    textarea id="code-input" class="code-editor"
+  div id="answer-correct" class="alert alert-success" style="display: none;"
+  div id="answer-wrong" class="alert alert-danger" style="display: none;"
+  div id="answer-loading" class="alert alert-warning" style="display: none;"
+    | Evaluating submission...
+  button id="code-submit" type="button" class="btn btn-primary"
+    | Submit
+  div id="level-id" type="hidden" data-id="#{@content_data.name}"
+  br
+  / TODO REMOVE 'name' when js content data removed
+  javascript:
+    setUpEditor("#{name}", "#{@programming_language}", "#{@base64_last_code}", "#{@base64_previous_step_code}", "#{@content_data.camel_function_name}", #{JSON.generate(@content_data.parameters).html_safe});
+
+- else
+  div class="alert alert-danger"
+    |
+      Sign Up or Log In to access the code editor and answer the question!
+    br
+    button type="button" class="btn btn-success logged-out-btn" data-toggle="modal" data-target="#sign-up-modal"
+      | Sign Up
+    = link_to('Log In', new_user_session_path, class: 'btn btn-primary logged-out-btn')
+  javascript:
+    showCodeForLanguage('javascript');

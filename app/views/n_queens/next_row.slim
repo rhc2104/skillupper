@@ -1,0 +1,55 @@
+p
+  |
+    After being able to validate whether a Queen placement is valid, we can use it to write a function called 
+  code< data-var-camel="nextRowColumns"
+  |
+    . It would return the columns in the next row that the existing Queens cannot visit, so the partial solution with an additional Queen would succeed.
+
+p
+  |
+    The first parameter is
+  code<> data-var-camel="size"
+  |
+    and determines the size of the chessboard.
+p
+  |
+    The second parameter is
+  code< data-var-camel="existingQueens"
+  |
+    , which is an array of Queen positions.  It is an array of arrays- the first value of the array is the row, and the second value is the column.
+p
+  |
+    The third parameter is
+  code< data-var-camel="nextRow"
+  |
+    , which is an integer of the row to check.
+
+= render partial: 'layouts/chessboard', locals: {show_visitable: true, existing_queens: [[0, 1], [1, 3]], questions: [[2, 0], [2, 5], [2, 6], [2, 7]]}
+
+br
+
+p
+  |
+    The diagram above illustrates the following parameters:
+p
+  code
+    = render partial: 'layouts/define_variable', locals: {variable_name_camel: 'size', variable: 8}
+  br
+  code
+    = render partial: 'layouts/define_variable', locals: {variable_name_camel: 'existingQueens', variable: [[0, 1], [1, 3]]}
+  br
+  code
+    = render partial: 'layouts/define_variable', locals: {variable_name_camel: 'nextRow', variable: 2}
+p
+  code> data-var-camel="nextRowColumns"
+  |
+    would return
+  code<>
+    | [0, 5, 6, 7]
+  |
+    in this case.  The column values must be in ascending order.
+p
+  |
+    If there are no columns to check, return an empty array.
+
+= render partial: 'layouts/editor', locals: {name: 'nextRowColumns', level: 'validate_queen_placement'}

@@ -1,0 +1,18 @@
+code
+  - matrix.each do |row|
+    br
+    - row.each do |data|
+      span class="matrix-data-container"
+        span id="#{prefix}-#{data}" class="matrix-data"
+          = data
+p
+  code
+    = render partial: 'layouts/define_variable', locals: {variable_name_camel: 'matrix', variable: matrix}
+p
+  |
+    The output of the function would be:
+  code
+    br
+    = JSON.generate(order)
+javascript:
+  matrixAnimation(#{{order}}, "#{prefix}");

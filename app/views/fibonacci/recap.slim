@@ -1,0 +1,54 @@
+p
+  strong
+    |
+      Dynamic Programming Recap
+p
+  |
+    At first, we started with the simplest recursive solution for Fibonacci.  By using memoization, we were able to massively speed up the solution.
+p
+  |
+    Why did memoization speed up the solution?  It is because Fibonacci has
+  strong<>
+    | optimal substructure
+  |
+    and
+  strong<
+    | overlapping subproblems
+  |
+    .
+p
+  |
+    Optimal substructure means that the optimal solution to the problem can be created from optimal solutions of its subproblems.
+p
+  |
+    In other words,
+  code<>
+    | fibonacci(5)
+  |
+    can be solved with
+  code<>
+    | fibonacci(4)
+  |
+    and
+  code<
+    | fibonacci(3)
+  |
+    , so the problem lends itself to a recursive solution.
+p
+  |
+    Fibonacci has overlapping subproblems, as the same subproblem is called multiple times.  Thus, it makes sense to use memoization to cache the results.
+
+p
+  |
+    In addition, we looked into creating a bottom-up solution.  For the recursive solution, we defined a Fibonacci number as the sum of the two previous Fibonacci numbers.  However, we could start with the base cases of
+  code<>
+    | fibonacci(1)
+  |
+    and
+  code<>
+    | fibonacci(2)
+  |
+    and calculate the next number in the Fibonacci sequence, rather than the previous numbers in the Fibonacci sequence.
+
+a href='/basketball_scores/naive_permutations' class="btn btn-primary"
+  | Next

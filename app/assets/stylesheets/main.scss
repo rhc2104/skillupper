@@ -1,0 +1,171 @@
+// General
+body {
+  background-color: #fffbf7 !important;
+  margin: auto !important;
+  padding: 20px;
+  width: 1060px;
+}
+
+// Bootstrap blocks of code should look same as one-liner
+pre.code {
+  color: #e83e8c;
+}
+
+.main {
+  min-height: 600px;
+}
+
+.bottom-padding {
+  padding-bottom: 100px;
+}
+
+// Menu
+.skillupper-logo {
+  color: black;
+}
+
+.menu {
+  float: left;
+  padding-right: 10px;
+  width: 184px;
+}
+
+.menu-category {
+  padding: 3px 0 0 10px;
+  margin-bottom: 5px;
+}
+
+.not-menu-container {
+  float: left;
+  margin-top: 10px;
+  width: 800px;
+}
+
+.footer-notice {
+  text-align: center;
+}
+
+.log-in-or-out {
+  float: right;
+  .btn {
+    margin-left: 10px;
+  }
+}
+
+// For prompt to get user to sign up or log in
+.logged-out-btn {
+  margin: 10px 10px 0 0;
+}
+
+// Home page
+
+.intro_paragraph {
+  font-size: 24px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.introbox_container {
+  margin: auto;
+  margin-top: 15px;
+  width: 315px;
+  &.wide {
+    width: 935px;
+  }
+}
+
+.introbox {
+  background-color: #C9D6C2;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 19px;
+  margin: 10px;
+  padding: 17px 20px 20px 20px;
+  text-align: center;
+  vertical-align: center;
+  width: 300px;
+  &.introbox-third {
+    width: 250px;
+  }
+}
+
+#sign-up-modal {
+
+  .field {
+    padding-bottom: 10px;
+  }
+
+  [type='radio'] {
+    margin: 0 20px 0 5px;
+  }
+}
+
+.fine-print {
+  color: #888888;
+  font-size: .8rem;
+  padding-bottom: 20px;
+}
+
+// Code input
+.code-input-container {
+  clear: both;
+  width: 800px;
+}
+
+// Used for iOS since ACE editor does not work
+.code-editor {
+  font-family: Courier;
+  height: 500px;
+  width: 780px;
+}
+
+.put-code-here {
+  float: left;
+  padding-bottom: 10px;
+}
+
+#language-selector {
+  float: right;
+}
+
+// Matrix
+.matrix-data-container {
+  padding: 5px 0;
+}
+
+.matrix-data {
+  padding: 5px 10px;
+}
+
+// Chessboard
+table.chessboard {
+  background: gray;
+  border-collapse: collapse;
+  display: block-inline;
+  margin: 0 auto;
+}
+
+td.chessboard-index {
+  background-color: #fffbf7;
+  height: 30px;
+  text-align: center;
+  width: 30px;
+}
+
+td.chessboard-can-visit {
+  background: yellow;
+  border: 1px solid black;
+  text-align: center;
+}
+
+td.chessboard-square {
+  border: 1px solid black;
+  height: 30px;
+  text-align: center;
+  width: 30px;
+}
+
+tr.chessboard-row:nth-child(odd) td.chessboard-square:nth-child(even),
+tr.chessboard-row:nth-child(even) td.chessboard-square:nth-child(odd) {
+  background: white;
+}

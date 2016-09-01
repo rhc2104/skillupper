@@ -1,0 +1,2 @@
+class SpiralMatrixController < ApplicationController
+end

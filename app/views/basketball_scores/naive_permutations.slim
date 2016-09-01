@@ -1,0 +1,43 @@
+p
+  |
+    We would like to write a function that calculates the number of permutations of scoring a certain number of points in basketball.
+p
+  |
+    In basketball, a free throw is worth one point, a two pointer is worth two points, and a three pointer is worth three points.  We can assume that these shots can be made in any order (since someone can shoot one free throw after a technical foul).
+p
+  |
+    For this problem, the order matters when calculating the number of ways to score a certain number of points, as we are calculating permutations.
+p
+  |
+    For example, here are the ways to score 4 points:
+  ul
+    li 4 free throws
+    li 1 two pointer, 2 free throws
+    li 1 free throw, 1 two pointer, 1 free throw
+    li 2 free throws, 1 two pointer
+    li 2 two pointers
+    li 1 free throw and 1 three pointer
+    li 1 three pointer and 1 free throw
+
+p
+  '
+    Thus,
+  code< data-var-camel="basketballScorePermutations"
+  code>
+    | (4)
+  '
+    would return
+  code
+    | 7
+  |
+    .
+
+p
+  |
+    For the first step, write a straightforward recursive solution to this problem, without memoization.
+p
+  |
+    Think about what the recursive subproblems are.  If you are trying to find the permutations of scoring 10 points, then that would be the sum of permutations scoring 7 points (plus a three pointer), permutations scoring 8 points (plus a two pointer), and permutations scoring 9 points (plus a free throw).
+    
+
+= render partial: 'layouts/editor', locals: {name: 'naivePermutations', level: 'naive_permutations'}

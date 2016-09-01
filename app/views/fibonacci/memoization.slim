@@ -1,0 +1,81 @@
+p
+  |
+    While the previous recursive solution works correctly, it is very inefficient.
+
+p
+  |
+    The recursive subproblems are called over and over again.
+p
+  | For example, let's visualize
+  code<> fibonacci(5)
+  | making its recursive calls as a tree.
+
+p
+  = image_tag('fib.png')
+
+p
+  | As you can see, 
+  code<> fibonacci(3)
+  | and
+  code<> fibonacci(2)
+  | are called multiple times.
+
+p
+  | As the input gets larger, this gets more inefficient.  When
+  code<> fibonacci(30)
+  | is called,
+  code<> fibonacci(2)
+  | is called over half a million times.
+p
+  |
+    In order to make the function much faster, we can record the results that we have, so we only have to calculate a subproblem once.
+p
+  |
+    This is called memoization.  The name comes from taking the "memo" of a result, and referring back to it later.
+p
+  |
+    We could make an object that stores the previous results.  This object (also known as a cache) could be global and outside of the function.  If we wanted to make the function not have side effects, another way is to pass the object as a parameter in recursive calls.
+p
+  code class="language-specific javascript-specific python-specific"
+    = render partial: 'layouts/define_variable', locals: {variable_name_camel: 'results', variable: {}}
+  code class="language-specific ruby-specific"
+    | $results = {}
+p
+  |
+    Any time we get to the end of a function calling
+  code< fibonacci(n)
+  |
+    , we would run something like:
+p
+  code class="language-specific javascript-specific"
+    | results[n] = valueToReturn;
+  code class="language-specific python-specific"
+    | results[n] = value_to_return
+  code class="language-specific ruby-specific"
+    | $results[n] = value_to_return
+p
+  |
+    In the beginning of the function, we would check to see if we have already stored that value, and return it if so.
+p
+  pre class="language-specific javascript-specific code"
+    | if (results[n] !== undefined) {
+        return results[n];
+      }
+  pre class="language-specific python-specific code"
+    | if n in results:
+        return results[n]
+  pre class="language-specific ruby-specific code"
+    | if $results.include?(n)
+        return $results[n]
+
+p
+  |
+    Please create a modified version of
+  code<> fibonacci
+  |
+    with memoization.  It should be able to handle
+  code< fibonacci(70)
+  |
+    .
+
+= render partial: 'layouts/editor', locals: {name: 'memoizationFib', level: 'memoization_fibonacci'}

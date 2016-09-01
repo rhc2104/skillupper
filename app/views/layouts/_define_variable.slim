@@ -1,0 +1,7 @@
+span class="language-specific javascript-specific" style="display: none;"
+  | var
+  span<> data-var-camel="#{variable_name_camel}"
+  = "= #{JSON.generate(variable)};"
+span class="language-specific python-specific ruby-specific" style="display: none;"
+  span> data-var-camel="#{variable_name_camel}"
+  = "= #{JSON.generate(variable)}"

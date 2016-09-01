@@ -1,0 +1,55 @@
+div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-hidden="true"
+  div class="modal-dialog modal-dialog-centered" role="document"
+    div class="modal-content"
+      div class="modal-header"
+        h5 class="modal-title"
+          | Sign Up For SkillUpper
+        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true"
+          | &times;
+      div class="modal-body"
+        = form_for :user, url: '/' do |f|
+          div class="field"
+            = f.label :email
+            br
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+
+          div class="field"
+            = f.label :password
+            br
+            = f.password_field :password, autocomplete: "new-password"
+
+          div class="field"
+            = f.label :programming_language, 'Preferred Programming Language'
+            br
+            = select(:user, :programming_language, Languages.values, include_blank: true)
+
+          div class="field"
+            = f.label :country_code, 'Country'
+            br
+            = country_select("user", "country_code", priority_countries: ["US"], include_blank: true)
+
+          div class="field"
+            = f.label :interested_in_jobs, 'Are you interested in getting information about job opportunities from partners?'
+            = f.label :interested_in_jobs, 'Yes', value: true
+            = f.radio_button :interested_in_jobs, true
+            = f.label :interested_in_jobs, 'No', value: false
+            = f.radio_button :interested_in_jobs, false
+
+          div class="field"
+            = f.label :years_of_experience, 'Years of Software Engineering Experience'
+            br
+            - YearsOfExperience.values.each do |years|
+              = f.label :years_of_experience, years, value: years
+              = f.radio_button :years_of_experience, years
+
+          div class="fine-print"
+            |
+              By signing up you agree to the
+            a< href="/terms" target="_blank"
+              | Terms of Service
+            |
+              .
+
+          div class="actions"
+            = f.submit "Sign up"

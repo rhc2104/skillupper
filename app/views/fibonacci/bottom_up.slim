@@ -1,0 +1,38 @@
+p
+  |
+    Using memoization, we have come up with a way to make sure we only calculate each Fibonacci number only once.
+p
+  |
+    The first two numbers in the Fibonacci sequence are
+  code<>
+    | 1
+  |
+    and
+  code<
+    | 1
+  |
+    , and you can get the next number in the sequence by adding the two previous numbers.
+p
+  |
+    You might be thinking that it would be straightforward to start from the beginning of the sequence and work our way up.
+p
+  |
+    This is the "bottom-up" approach, where you start with the smallest subproblems, and work upwards.  Bottom-up and memoization are both variants of "Dynamic Programming", which ensure that we are not duplicating work of subproblems.
+p
+  |
+    Please create a solution for Fibonacci using the bottom-up approach.
+p
+  |
+    Here is the pseudocode:
+pre
+  | fibonacci(n):
+      if n is 1 or 2:
+        return 1
+      previous_value and value_before_previous are 1
+      from 3 to n:
+        new_value is previous_value + value_before_previous
+        value_before_previous is previous_value
+        previous_value is new_value
+      return previous_value
+
+= render partial: 'layouts/editor', locals: {name: 'bottomUpFib', level: 'bottom_up_fibonacci'}
