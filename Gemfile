@@ -48,7 +48,7 @@ gem 'slim-rails', '~> 3.1.3'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails', '~> 4.3.3'
 
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.7.1'
 
 gem 'country_select', '~> 3.1'
 
